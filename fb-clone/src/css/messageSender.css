@@ -11,15 +11,16 @@
 .messageSender__top {
 	display: flex;
 	border-bottom: 1px solid #eff2f5;
+	padding-bottom: 15px;
 	padding: 15px;
 }
 
-.messageSender__top > form {
+.messageSender__top form {
 	flex: 1;
 	display: flex;
 }
 
-.messageSender__top > form > input {
+.messageSender__top form input {
 	outline-width: 0;
 	border: none;
 	padding: 5px 20px;
@@ -28,7 +29,7 @@
 	background-color: #eff2f5;
 }
 
-.messageSender__top > form > button {
+.messageSender__top form button {
 	display: none;
 }
 
@@ -36,7 +37,7 @@
 	flex: 1;
 }
 
-.messageSender__button {
+.messageSender__bottom {
 	display: flex;
 	justify-content: space-evenly;
 }
@@ -45,14 +46,15 @@
 	padding: 20px;
 	display: flex;
 	align-items: center;
-	color: gray;
+	color: #555;
+	transition: 0.5s;
 	margin: 5px;
+	cursor: pointer;
 }
 
-.messageSender__option > h3 {
+.messageSender__option h3 {
 	font-size: medium;
 	margin-left: 10px;
-	cursor: pointer;
 }
 
 .messageSender__option:hover {
