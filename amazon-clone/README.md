@@ -11,4 +11,6 @@ CPC: 242
 Last 4 Dig's: 42424
 ```
 
+Please do not provide your personal Card Credentials and make use of the credentials provided above!
+
 
