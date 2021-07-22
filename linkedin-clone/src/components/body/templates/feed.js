@@ -9,10 +9,15 @@ import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
 import Post from './post';
 import {db} from '../../firebase/firebase';
 import firebase from 'firebase';
+import { useSelector } from 'react-redux';
+import {selectUser} from '../../../features/userSlice';
+import FlipMove from 'react-flip-move';
+
 
 function Feed() {
     const [posts, setPosts] = useState([]);
     const [input, setInput] = useState('');
+    const user = useSelector(selectUser);
 
     useEffect(() => {
         //real time connection to database
@@ -29,10 +34,10 @@ function Feed() {
     const sendPost = e => {
         e.preventDefault();
         db.collection('posts').add({
-            name: 'James Williams',
-            description: 'Just a test',
+            name: user.displayName,
+            description: user.email,
             message: input,
-            photoUrl: '',
+            photoUrl: user.photoUrl,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
         //resetting the input value
@@ -57,9 +62,12 @@ function Feed() {
                     <InputOption Icon={CalendarViewDayIcon} title="Write article" color="#7FC15E"/>
                 </div>
             </div>
-            {posts.map(({id, data: {name, description, message, photoUrl}}) => (
-                <Post key={id} name={name} description={description} message={message} photoUrl={photoUrl}/>
-            ))}
+
+            <FlipMove>
+                {posts.map(({id, data: {name, description, message, photoUrl}}) => (
+                    <Post key={id} name={name} description={description} message={message} photoUrl={photoUrl}/>
+                ))}
+            </FlipMove>
         </div>
     )
 }
