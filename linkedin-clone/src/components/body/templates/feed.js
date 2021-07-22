@@ -3,8 +3,10 @@ import '../../../styles/feed.css';
 
 function Feed() {
     return (
-        <div>
-            
+        <div className="feed">
+            <div className="feed__inputContainer">
+                
+            </div>
         </div>
     )
 }
